@@ -8,7 +8,7 @@
 	import save from '../icons/save.js';
 	import { clipboard, file } from '../services.js';
 	import { QrCode, Ecc } from '../qrcodegen.js';
-	import { browser } from '$app/environment';
+	import { BROWSER } from 'esm-env';
 
 	export let values: { label: string; value: string }[];
 
@@ -26,7 +26,7 @@
 
 	let containerWidth = 380; // Default width for SSR
 
-	if (browser) {
+	if (BROWSER) {
 		containerWidth = Math.min(window.innerWidth - 32, 380);
 	}
 

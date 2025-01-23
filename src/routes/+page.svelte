@@ -1,7 +1,7 @@
 <script>
 	import TipModal from '$lib/components/TipModal.svelte';
 
-	let showModal = true;
+	let showModal = false;
 
 	function openModal() {
 		showModal = true;
