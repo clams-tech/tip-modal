@@ -2,7 +2,7 @@
 
 The `TipModal` component is a Svelte-based modal designed for displaying various payment options and allowing users to trigger it with customizable buttons. This component is lightweight, easy to use, and allows customization via props and slots.
 
-![Screenshot 2025-01-21 at 11 13 19 AM](https://github.com/user-attachments/assets/b60d09bf-ca99-4920-bfb3-93d50481c1c7)
+![Screenshot 2025-01-23 at 9 34 26 AM](https://github.com/user-attachments/assets/a50c1fdf-e279-4588-99df-d862dde792a5)
 
 ---
 
