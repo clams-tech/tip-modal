@@ -175,13 +175,13 @@ To run this component locally for development, follow these steps:
 2. Install dependencies:
 
    ```bash
-   npm install
+   yarn
    ```
 
 3. Start the development server:
 
    ```bash
-   npm run dev
+   yarn dev
    ```
 
    This will start a local server (powered by Vite) for live preview and development.
@@ -189,7 +189,7 @@ To run this component locally for development, follow these steps:
 4. Build the project:
 
    ```bash
-   npm run build
+   yarn build
    ```
 
    This command compiles the component for production.
