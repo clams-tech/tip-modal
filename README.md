@@ -17,7 +17,7 @@ npm install git+https://github.com/clams-tech/tip-modal.git
 Then, import it into your project:
 
 ```svelte
-import TipModal from 'tip-modal';
+import {TipModal} from 'tip-modal';
 ```
 
 ---
