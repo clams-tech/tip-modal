@@ -1,5 +1,4 @@
 <script lang="ts">
-	import '../app.css';
 	import { fade } from 'svelte/transition';
 	import { quintInOut } from 'svelte/easing';
 	import close from '../icons/close.js';
