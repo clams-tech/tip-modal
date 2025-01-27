@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '../app.css';
 	import { slide } from 'svelte/transition';
 	import copy from '../icons/copy.js';
 	import photo from '../icons/photo.js';
