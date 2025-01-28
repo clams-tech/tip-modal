@@ -20,6 +20,12 @@ Then, import it into your project:
 import {TipModal} from 'tip-modal';
 ```
 
+and import the styles:
+
+```svelte
+import 'tip-modal/app.css';
+```
+
 ---
 
 ## Props
