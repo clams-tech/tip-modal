@@ -43,17 +43,11 @@
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div
 		in:fade|global={{ easing: quintInOut }}
+		class="modal-overlay"
 		on:click|stopPropagation={closeModal}
-		class="fixed inset-0 z-50 flex items-center justify-center bg-white/40 backdrop-blur-sm"
 	>
-		<div
-			on:click|stopPropagation
-			class="relative max-h-[95%] w-full max-w-sm overflow-auto rounded-3xl bg-black p-4 pt-14 text-center shadow-lg"
-		>
-			<button
-				on:click={closeModal}
-				class="absolute right-1 top-1 flex h-12 w-12 items-center justify-center text-white hover:text-gray-300"
-			>
+		<div class="modal-content" on:click|stopPropagation>
+			<button class="close-button" on:click={closeModal}>
 				{@html close}
 			</button>
 			<Qr values={paymentOptions} />
@@ -62,12 +56,76 @@
 {:else}
 	<slot name="button">
 		<!-- Default button -->
-		<button
-			class="flex items-center rounded bg-black px-4 py-2 font-bold text-white hover:text-gray-300"
-			on:click={openModal}
-		>
-			<div class="w-5">{@html bitcoinIcon}</div>
+		<button class="default-button" on:click={openModal}>
+			<div class="icon">{@html bitcoinIcon}</div>
 			<span>{buttonText}</span>
 		</button>
 	</slot>
 {/if}
+
+<style>
+	.modal-overlay {
+		position: fixed;
+		inset: 0;
+		z-index: 50;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: rgba(255, 255, 255, 0.4);
+		-webkit-backdrop-filter: blur(10px);
+		        backdrop-filter: blur(10px);
+	}
+
+	.modal-content {
+		position: relative;
+		max-height: 95%;
+		width: 100%;
+		max-width: 24rem; /* 384px */
+		overflow: auto;
+		border-radius: 1.5rem; /* 24px */
+		background: black;
+		padding: 1rem;
+		padding-top: 3.5rem; /* 56px */
+		text-align: center;
+		box-shadow:
+			0 4px 6px rgba(0, 0, 0, 0.1),
+			0 1px 3px rgba(0, 0, 0, 0.06);
+	}
+
+	.close-button {
+		position: absolute;
+		top: 0.25rem; /* 4px */
+		right: 0.25rem; /* 4px */
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 3rem; /* 48px */
+		height: 3rem; /* 48px */
+		color: white;
+		transition: color 0.2s;
+	}
+
+	.close-button:hover {
+		color: #d1d5db; /* gray-300 */
+	}
+
+	.default-button {
+		display: flex;
+		align-items: center;
+		border-radius: 0.375rem; /* 6px */
+		background: black;
+		padding: 0.5rem 1rem; /* 8px 16px */
+		font-weight: 700;
+		color: white;
+		transition: color 0.2s;
+	}
+
+	.default-button:hover {
+		color: #d1d5db; /* gray-300 */
+	}
+
+	.icon {
+		width: 1.25rem; /* 20px */
+		margin-right: 0.5rem; /* 8px */
+	}
+</style>
