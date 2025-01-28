@@ -112,17 +112,13 @@
 	});
 </script>
 
-<div class="flex w-full flex-col items-center justify-center overflow-hidden">
-	<div class="w-full max-w-[350px] md:max-w-[500px]">
-		<div class="flex w-full justify-start">
-			<div
-				class="grid w-full overflow-hidden rounded-t-lg border border-b-0 text-sm font-semibold"
-				style="grid-template-columns: repeat({values.length}, 1fr);"
-			>
+<div class="container">
+	<div class="inner-container">
+		<div class="tabs">
+			<div class="tab-grid" style="grid-template-columns: repeat({values.length}, 1fr);">
 				{#each values as { label }, index}
 					<button
 						on:click={() => (selectedValueIndex = index)}
-						class="cursor-pointer bg-none px-1 py-2 text-white transition-all hover:text-gray-300 [&.selected-tab]:bg-white [&.selected-tab]:text-black"
 						class:selected-tab={index === selectedValueIndex}
 					>
 						{label}
@@ -130,46 +126,161 @@
 				{/each}
 			</div>
 		</div>
-		<div class="flex w-full flex-col items-center justify-center overflow-hidden">
+
+		<div class="qr-code-container">
 			<!-- QR Code -->
 			<!-- svelte-ignore a11y_consider_explicit_label -->
-			<button on:click={copyText} class="flex items-center justify-center border-none">
-				<canvas bind:this={canvas} class="h-[380px] w-[380px]"></canvas>
+			<button on:click={copyText} class="qr-button">
+				<canvas bind:this={canvas} class="qr-canvas"></canvas>
 			</button>
+
 			<!-- Controls -->
-			<div class="mt-4 flex w-full justify-between">
-				<div class="flex max-w-[12rem] grow items-center">
+			<div class="controls">
+				<div class="message-container">
 					{#if message}
-						<div transition:slide={{ axis: 'x' }} class="flex items-center text-white">
-							<div class="mr-1 h-3.5 w-3.5 rounded-full border border-current">{@html info}</div>
-							<div class="overflow-hidden text-ellipsis whitespace-nowrap">
-								{message.value}
-							</div>
+						<div transition:slide={{ axis: 'x' }} class="message">
+							<div class="info-icon">{@html info}</div>
+							<div class="message-text">{message.value}</div>
 						</div>
 					{/if}
 				</div>
 
-				<div class="flex items-center justify-center gap-4">
-					<button
-						on:click={copyText}
-						class="flex w-12 cursor-pointer items-center justify-center border-none bg-none text-white"
-					>
-						{@html copy}
-					</button>
-					<button
-						on:click={copyImage}
-						class="flex w-12 cursor-pointer items-center justify-center border-none bg-none text-white"
-					>
-						{@html photo}
-					</button>
-					<button
-						on:click={saveImage}
-						class="flex w-12 cursor-pointer items-center justify-center border-none bg-none text-white"
-					>
-						{@html save}
-					</button>
+				<div class="actions">
+					<button on:click={copyText} class="action-button">{@html copy}</button>
+					<button on:click={copyImage} class="action-button">{@html photo}</button>
+					<button on:click={saveImage} class="action-button">{@html save}</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<style>
+	.container {
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+	}
+
+	.inner-container {
+		width: 100%;
+		max-width: 350px;
+	}
+
+	@media (min-width: 768px) {
+		.inner-container {
+			max-width: 500px;
+		}
+	}
+
+	.tabs {
+		display: flex;
+		justify-content: start;
+	}
+
+	.tab-grid {
+		display: grid;
+		width: 100%;
+		overflow: hidden;
+		border: 1px solid;
+		border-bottom: 0;
+		border-radius: 8px 8px 0 0;
+		font-size: 14px;
+		font-weight: 600;
+		border: 1px solid white;
+		border-bottom: none;
+	}
+
+	.tab-grid button {
+		cursor: pointer;
+		background: none;
+		padding: 1rem 0.1rem;
+		color: white;
+		transition: all 0.2s;
+	}
+
+	.tab-grid button:hover {
+		color: #d1d5db;
+	}
+
+	.tab-grid button.selected-tab {
+		background: white;
+		color: black;
+	}
+
+	.qr-code-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+	}
+
+	.qr-button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: none;
+		background: none;
+	}
+
+	.qr-canvas {
+		height: 380px;
+		width: 380px;
+	}
+
+	.controls {
+		margin-top: 1rem;
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+	}
+
+	.message-container {
+		display: flex;
+		max-width: 12rem;
+		flex-grow: 1;
+		align-items: center;
+	}
+
+	.message {
+		display: flex;
+		align-items: center;
+		color: white;
+	}
+
+	.info-icon {
+		margin-right: 0.25rem;
+		height: 0.875rem;
+		width: 0.875rem;
+		border-radius: 50%;
+		border: 1px solid currentColor;
+	}
+
+	.message-text {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.actions {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+	}
+
+	.action-button {
+		display: flex;
+		width: 3rem;
+		cursor: pointer;
+		align-items: center;
+		justify-content: center;
+		border: none;
+		background: none;
+		color: white;
+	}
+</style>
