@@ -33,6 +33,8 @@
 	];
 
 	export let buttonText = 'Donate';
+
+	export let buttonTheme: 'light' | 'dark' = 'dark';
 </script>
 
 <svelte:window bind:innerWidth on:keyup={({ key }) => key === 'Escape' && closeModal()} />
@@ -56,7 +58,7 @@
 {:else}
 	<slot name="button">
 		<!-- Default button -->
-		<button class="default-button" on:click={openModal}>
+		<button class="default-button" data-theme={buttonTheme} on:click={openModal}>
 			<div class="icon">{@html bitcoinIcon}</div>
 			<span>{buttonText}</span>
 		</button>
@@ -118,6 +120,18 @@
 		font-weight: 700;
 		color: white;
 		transition: color 0.2s;
+	}
+
+	/* Light theme */
+	.default-button[data-theme='light'] {
+		background-color: white;
+		color: black;
+	}
+
+	/* Dark theme */
+	.default-button[data-theme='dark'] {
+		background-color: black;
+		color: white;
 	}
 
 	.default-button:hover {

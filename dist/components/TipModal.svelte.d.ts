@@ -20,6 +20,7 @@ declare const TipModal: $$__sveltets_2_IsomorphicComponent<{
         value: string;
     }[];
     buttonText?: string;
+    buttonTheme?: "light" | "dark";
 }, {
     click: MouseEvent;
 } & {

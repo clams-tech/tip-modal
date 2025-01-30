@@ -75,6 +75,16 @@ import 'tip-modal/app.css';
   ];
   ```
 
+### `buttonTheme`
+
+- **Type:** `'light'` | `'dark'`
+- **Default:** `'dark'`
+- **Description:** Specifies the theme of the default trigger button.
+- **Example:**
+  ```svelte
+  <TipModal buttonTheme="light" />
+  ```
+
 ### `buttonText`
 
 - **Type:** `string`

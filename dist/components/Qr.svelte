@@ -200,6 +200,7 @@
 		padding: 1rem 0.1rem;
 		color: white;
 		transition: all 0.2s;
+		text-align: center;
 	}
 
 	.tab-grid button:hover {
