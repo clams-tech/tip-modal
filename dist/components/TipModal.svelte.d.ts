@@ -15,10 +15,13 @@ declare const TipModal: $$__sveltets_2_IsomorphicComponent<{
     showModal?: boolean;
     openModal?: () => void;
     closeModal?: () => void;
+    paymentTag?: string;
     paymentOptions?: {
         label: string;
         value: string;
     }[];
+    modalTitle?: string;
+    modalDescription?: string;
     buttonText?: string;
     buttonTheme?: "light" | "dark";
 }, {

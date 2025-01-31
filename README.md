@@ -75,6 +75,48 @@ import 'tip-modal/app.css';
   ];
   ```
 
+### `paymentTag`
+
+- **Type:** `string`
+- **Default:** `"tips"`
+- **Description:** A customizable identifier for the default LNURL and LN Address payment options. This allows tracking of where payments originate, such as different apps.
+
+- **Example Usage:**
+  ```svelte
+  <TipModal paymentTag="remote" />
+  ```
+
+This results in the following payment options:
+
+```svelte
+const paymentOptions = [
+  { label: 'BOLT12', value: 'lno1zrxq8pjw7qjlm68mtp7e3yvxee4y5xrgjhhyf2fxhlphpckrvevh50u0qt2rt2xr6uuj7cfce48c5cr8sa2dqp2nkumkuztlq840mpjj95anvqsrh809gs052xe9reyna6v2djjv4p7k0leqy9uhthm8tpvvppphlmfsqvcdy9947hanvmq9mssn970apemvm7hjhg54qfdahgq2t5rwzca27ksjcz7lwn8xyl9qet4lmd4zjq8ucy4gq0cjem6q47gcl8a4f9lcr0qajukk809lnu7az9wupm0vz6ljh3ajgqqspdlvl6crzaxz9ueuu5h9as269y' },
+  { label: 'LNURL', value: 'https://clams.tech/.well-known/lnurlp/remote' },
+  { label: 'LN Address', value: 'remote@clams.tech' },
+  { label: 'Onchain', value: 'bitcoin:32KAVNNDqjvw9SgProPnffVgdg4YEhgVKy' }
+];
+```
+
+### `modalTitle`
+
+- **Type:** `string`
+- **Default:** `''`
+- **Description:** The title displayed at the top of the modal, typically describing the purpose of the modal (e.g., "Donate Now" or "Support Us"). It is displayed in a bold, larger font.
+- **Example:**
+  ```svelte
+  <TipModal modalTitle="Support Us" />
+  ```
+
+### `modalDescription`
+
+- **Type:** `string`
+- **Default:** `''`
+- **Description:** The description displayed under the title in the modal. It provides additional context or instructions, in a smaller font than the title. Use this to give more details about the purpose of the modal, such as explaining a process or providing extra information.
+- **Example:**
+  ```svelte
+  <TipModal modalDescription="Thank you for your contribution!" />
+  ```
+
 ### `buttonTheme`
 
 - **Type:** `'light'` | `'dark'`

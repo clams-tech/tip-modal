@@ -197,7 +197,7 @@
 	.tab-grid button {
 		cursor: pointer;
 		background: none;
-		padding: 1rem 0.1rem;
+		padding: 1em 0.1em;
 		color: white;
 		transition: all 0.2s;
 		text-align: center;
@@ -234,7 +234,7 @@
 	}
 
 	.controls {
-		margin-top: 1rem;
+		margin-top: 1em;
 		display: flex;
 		width: 100%;
 		justify-content: space-between;
@@ -242,7 +242,7 @@
 
 	.message-container {
 		display: flex;
-		max-width: 12rem;
+		max-width: 12em;
 		flex-grow: 1;
 		align-items: center;
 	}
@@ -254,9 +254,9 @@
 	}
 
 	.info-icon {
-		margin-right: 0.25rem;
-		height: 0.875rem;
-		width: 0.875rem;
+		margin-right: 0.25em;
+		height: 0.875em;
+		width: 0.875em;
 		border-radius: 50%;
 		border: 1px solid currentColor;
 	}
@@ -271,12 +271,12 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 1rem;
+		gap: 1em;
 	}
 
 	.action-button {
 		display: flex;
-		width: 3rem;
+		width: 3em;
 		cursor: pointer;
 		align-items: center;
 		justify-content: center;
